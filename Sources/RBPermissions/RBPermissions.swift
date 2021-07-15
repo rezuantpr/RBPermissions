@@ -16,10 +16,10 @@ open class RBPermissions {
 }
 
 public extension RBPermissions {
-  static private func createAlert(permission: Permission) -> UIAlertController {
+  static private func createAlert(permission: Permission) -> RBPermissionAlert {
     let title = String(format: "%@ are turned off", permission.type.name.capitalized)
     let message = String(format: "Please, visit device Settings to enable %@", permission.type.name.capitalized)
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let alertController = RBPermissionAlert(title: title, message: message, preferredStyle: .alert)
     alertController.addAction(.init(title: "Cancel", style: .cancel))
     alertController.addAction(.init(title: "Settings", style: .default, handler: { _ in
       openSettings()
@@ -41,13 +41,6 @@ public extension RBPermissions {
   
   static func presentDeniedAlert(for permission: Permission) {
     let alert = createAlert(permission: permission)
-    var rootViewController = UIApplication.shared.keyWindow?.rootViewController
-    if let navigationController = rootViewController as? UINavigationController {
-        rootViewController = navigationController.viewControllers.first
-    }
-    if let tabBarController = rootViewController as? UITabBarController {
-        rootViewController = tabBarController.selectedViewController
-    }
-    rootViewController?.present(alert, animated: true, completion: nil)
+    alert.show(animated: true, completion: nil)
   }
 }
