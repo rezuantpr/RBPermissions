@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-public class NotificationPermission: Permission {
+public class NotificationPermission: NSObject, Permission {
   public var type: PermissionType { .notifications }
   
   public var status: PermissionStatus {

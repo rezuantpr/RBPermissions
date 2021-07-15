@@ -11,7 +11,7 @@ import Foundation
 open class RBPermissions {
   public static let motion = MotionPermission()
   public static let locationWhenInUse = LocationWhenInUsePermission()
-  public static let locationAlwaysPermission = LocationAlwaysPermission()
+  public static let locationAlways = LocationAlwaysPermission()
   public static let notification = NotificationPermission()
 }
 
