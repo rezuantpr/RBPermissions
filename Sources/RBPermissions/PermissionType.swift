@@ -12,6 +12,7 @@ public enum PermissionType {
   case locationInUse
   case locationAlways
   case notifications
+  case camera
 }
 
 extension PermissionType {
@@ -23,6 +24,8 @@ extension PermissionType {
       return "location"
     case .notifications:
       return "notifications"
+    case .camera:
+      return "camera"
     }
   }
 }
