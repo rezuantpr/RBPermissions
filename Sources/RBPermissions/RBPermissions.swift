@@ -14,7 +14,7 @@ open class RBPermissions {
   public static let locationAlways = LocationAlwaysPermission()
   public static let notification = NotificationPermission()
   public static let camera = CameraPermission()
-  
+  public static let photo = PhotoPermission()
 }
 
 public extension RBPermissions {
