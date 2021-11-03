@@ -13,6 +13,7 @@ public extension Reactive where Base: Permission {
     Observable<PermissionStatus>.create { observer in
       base.request {
         observer.onNext(base.status)
+        observer.onCompleted()
       }
       return Disposables.create()
     }
