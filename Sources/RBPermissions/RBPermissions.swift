@@ -15,6 +15,7 @@ open class RBPermissions {
   public static let notification = NotificationPermission()
   public static let camera = CameraPermission()
   public static let photo = PhotoPermission()
+  public static let contacts = ContactsPermission()
 }
 
 public extension RBPermissions {
