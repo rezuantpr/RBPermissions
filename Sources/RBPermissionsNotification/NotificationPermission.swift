@@ -1,12 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 15.07.2021.
-//
-
 import Foundation
 import UserNotifications
+import RBPermissions
 
 public class NotificationPermission: NSObject, Permission {
   public var type: PermissionType { .notifications }
@@ -43,4 +37,8 @@ public class NotificationPermission: NSObject, Permission {
     semaphore.wait()
     return notificationSettings?.authorizationStatus
   }
+}
+
+extension RBPermissions {
+  public static let notification = NotificationPermission()
 }

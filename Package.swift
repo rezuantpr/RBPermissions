@@ -8,20 +8,55 @@ let package = Package(
   platforms: [.iOS(.v11)],
   products: [
     .library(
-      name: "RBPermissions",
-      targets: ["RBPermissions"]),
+      name: "RBPermissionsCamera",
+      targets: ["RBPermissionsCamera"]),
     
+      .library(
+        name: "RBPermissionsContacts",
+        targets: ["RBPermissionsContacts"]),
+    .library(
+      name: "RBPermissionsLocationAlways",
+      targets: ["RBPermissionsLocationAlways"]),
+    .library(
+      name: "RBPermissionsLocationWhenInUse",
+      targets: ["RBPermissionsLocationWhenInUse"]),
+    .library(
+      name: "RBPermissionsNotification",
+      targets: ["RBPermissionsNotification"]),
+    .library(
+      name: "RBPermissionsMotion",
+      targets: ["RBPermissionsMotion"]),
+    .library(
+      name: "RBPermissionsPhoto",
+      targets: ["RBPermissionsPhoto"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0"))
   ],
   targets: [
     .target(
       name: "RBPermissions",
-      dependencies: ["RxSwift"]),
-    .testTarget(
-      name: "RBPermissionsTests",
+      dependencies: []),
+    .target(
+      name: "RBPermissionsCamera",
       dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsContacts",
+      dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsLocationAlways",
+      dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsLocationWhenInUse",
+      dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsNotification",
+      dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsMotion",
+      dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsPhoto",
+      dependencies: ["RBPermissions"])
   ],
   swiftLanguageVersions: [.v5]
 )

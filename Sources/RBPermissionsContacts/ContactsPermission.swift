@@ -1,33 +1,30 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 19.07.2021.
-//
-
 import Foundation
-import Photos
+import Contacts
+import RBPermissions
 
-public class PhotoPermission: NSObject, Permission {
-  public var type: PermissionType { .photo }
+public class ContactsPermission: NSObject, Permission {
+  public let type: PermissionType = .contacts
   
   public var status: PermissionStatus {
-    switch PHPhotoLibrary.authorizationStatus() {
+    switch CNContactStore.authorizationStatus(for: .contacts) {
     case .authorized: return .authorized
     case .denied: return .denied
     case .notDetermined: return .notDetermined
     case .restricted: return .denied
-    case .limited: return .authorized
     @unknown default: return .denied
     }
   }
   
   public func request(completionHandler: (() -> ())?) {
-    PHPhotoLibrary.requestAuthorization({
-      finished in
+    let store = CNContactStore()
+    store.requestAccess(for: .contacts, completionHandler: { (granted, error) in
       DispatchQueue.main.async {
         completionHandler?()
       }
     })
   }
+}
+
+extension RBPermissions {
+  public static let contacts = ContactsPermission()
 }

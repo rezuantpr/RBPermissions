@@ -1,12 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 15.07.2021.
-//
-
 import Foundation
 import CoreMotion
+import RBPermissions
 
 public class MotionPermission: NSObject, Permission {
   public var type: PermissionType { .motion }
@@ -30,4 +24,8 @@ public class MotionPermission: NSObject, Permission {
         manager.stopActivityUpdates()
     })
   }
+}
+
+extension RBPermissions {
+  public static let motion = MotionPermission()
 }

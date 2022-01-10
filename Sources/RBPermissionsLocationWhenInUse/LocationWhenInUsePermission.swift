@@ -1,12 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 15.07.2021.
-//
-
 import Foundation
 import CoreLocation
+import RBPermissions
 
 public class LocationWhenInUsePermission: NSObject, Permission {
   public var type: PermissionType { .locationInUse }
@@ -65,4 +59,8 @@ extension LocationWhenInUsePermission: CLLocationManagerDelegate {
       self.completionHandler?()
     }
   }
+}
+
+extension RBPermissions {
+  public static let locationWhenInUse = LocationWhenInUsePermission()
 }

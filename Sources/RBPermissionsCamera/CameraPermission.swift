@@ -1,19 +1,12 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 04.11.2021.
-//
-
 import Foundation
-import Contacts
+import AVFoundation
+import RBPermissions
 
-public class ContactsPermission: NSObject, Permission {
-
-  public let type: PermissionType = .contacts
+public class CameraPermission: NSObject, Permission {
+  public var type: PermissionType { .camera }
   
   public var status: PermissionStatus {
-    switch CNContactStore.authorizationStatus(for: .contacts) {
+    switch AVCaptureDevice.authorizationStatus(for: .video) {
     case .authorized: return .authorized
     case .denied: return .denied
     case .notDetermined: return .notDetermined
@@ -23,11 +16,16 @@ public class ContactsPermission: NSObject, Permission {
   }
   
   public func request(completionHandler: (() -> ())?) {
-    let store = CNContactStore()
-    store.requestAccess(for: .contacts, completionHandler: { (granted, error) in
+    AVCaptureDevice.requestAccess(for: .video, completionHandler: {
+      finished in
       DispatchQueue.main.async {
         completionHandler?()
       }
     })
   }
+  
+}
+
+extension RBPermissions {
+  public static let camera = CameraPermission()
 }

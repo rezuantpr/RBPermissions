@@ -1,13 +1,4 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 15.07.2021.
-//
-
-import Foundation
 import UIKit
-
 
 public class RBPermissionAlert: UIAlertController {
   
@@ -26,18 +17,14 @@ public class RBPermissionAlert: UIAlertController {
       rootViewController.present(self, animated: animated, completion: completion)
     }
   }
-  
 }
 
 private class RBAlertViewController: UIViewController {
-
   public override var preferredStatusBarStyle: UIStatusBarStyle {
     UIApplication.shared.statusBarStyle
   }
 
-  
   public override var prefersStatusBarHidden: Bool {
     UIApplication.shared.isStatusBarHidden
   }
-  
 }

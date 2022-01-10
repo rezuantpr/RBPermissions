@@ -1,21 +1,6 @@
-//
-//  File.swift
-//  
-//
-//  Created by Rezuan Bidzhiev on 15.07.2021.
-//
-
 import UIKit
-import Foundation
 
 open class RBPermissions {
-  public static let motion = MotionPermission()
-  public static let locationWhenInUse = LocationWhenInUsePermission()
-  public static let locationAlways = LocationAlwaysPermission()
-  public static let notification = NotificationPermission()
-  public static let camera = CameraPermission()
-  public static let photo = PhotoPermission()
-  public static let contacts = ContactsPermission()
 }
 
 public extension RBPermissions {
