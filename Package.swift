@@ -29,6 +29,9 @@ let package = Package(
     .library(
       name: "RBPermissionsPhoto",
       targets: ["RBPermissionsPhoto"]),
+    .library(
+      name: "RBPermissionsTracking",
+      targets: ["RBPermissionsTracking"]),
   ],
   dependencies: [
   ],
@@ -56,6 +59,9 @@ let package = Package(
       dependencies: ["RBPermissions"]),
     .target(
       name: "RBPermissionsPhoto",
+      dependencies: ["RBPermissions"]),
+    .target(
+      name: "RBPermissionsTracking",
       dependencies: ["RBPermissions"])
   ],
   swiftLanguageVersions: [.v5]

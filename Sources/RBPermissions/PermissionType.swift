@@ -6,6 +6,7 @@ public enum PermissionType {
   case camera
   case photo
   case contacts
+  case tracking
 }
 
 extension PermissionType {
@@ -23,6 +24,8 @@ extension PermissionType {
       return "photo"
     case .contacts:
       return "contacts"
+    case .tracking:
+      return "tracking"
     }
   }
 }
